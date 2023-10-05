@@ -1,0 +1,21 @@
+{
+    "name": "kubinyete/edi-php",
+    "description": "A standard library for reading EDI files and declaring your own EDI parsers",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Kubinyete\\Edi\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Vitor Kubinyete",
+            "email": "vitorkubinyete@hotmail.com"
+        }
+    ],
+    "require-dev": {
+        "symfony/var-dumper": "^6.3",
+        "phpunit/phpunit": "^10.3"
+    }
+}
