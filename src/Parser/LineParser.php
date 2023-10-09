@@ -23,6 +23,16 @@ abstract class LineParser implements IteratorAggregate
 
     //
 
+    public function getLine(): ?string
+    {
+        return $this->reader->getLine();
+    }
+
+    public function getLineNumber(): int
+    {
+        return $this->reader->getLineNumber();
+    }
+
     public function next(): ?Registry
     {
         if (!$this->reader->eof()) {

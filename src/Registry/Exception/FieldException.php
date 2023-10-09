@@ -8,6 +8,7 @@ class FieldException extends UnexpectedValueException
 {
     private ?int $cursor = null;
     private ?string $contents = null;
+    private ?string $name = null;
 
     public function getCursor(): ?int
     {
@@ -32,5 +33,15 @@ class FieldException extends UnexpectedValueException
     public function setContents(string $value): void
     {
         $this->contents = $value;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $value): void
+    {
+        $this->name = $value;
     }
 }

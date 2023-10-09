@@ -31,8 +31,8 @@ final class LineContext
         $reference = $cursor >= 0 ? str_repeat('-', $cursor) . '^' : '';
         $verbose = <<<MSG
 Line {$this->lineNumber}: {$message}
-Contents: "{$this->contents}"
-           {$reference}
+{$this->contents}
+{$reference}
 
 MSG;
         throw new ParseException($verbose, 0, $previous);
@@ -43,5 +43,10 @@ MSG;
         if (!$condition) {
             $this->raise($message);
         }
+    }
+
+    public function empty(): bool
+    {
+        return !$this->contents;
     }
 }

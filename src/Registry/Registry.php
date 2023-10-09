@@ -27,6 +27,7 @@ abstract class Registry
                 } catch (FieldException $e) {
                     $e->setCursor($pointer);
                     $e->setContents($value);
+                    $e->setName("{$reflection->getShortName()}.{$property->getName()}");
                     throw $e;
                 }
 
