@@ -3,10 +3,9 @@
 namespace Kubinyete\Edi\Registry\Field;
 
 use Attribute;
-use Kubinyete\Edi\Registry\Exception\FieldException;
 
 #[Attribute]
-class DecimalField extends Field
+class DecimalField extends NumericField
 {
     public function __construct(int $size, public ?int $precision = null, public string $delimiters = '.', ?int $index = null)
     {
@@ -15,15 +14,7 @@ class DecimalField extends Field
 
     public function parse($value)
     {
-        if (!is_numeric($value)) {
-            throw new FieldException("Failed to parse field as a number literal");
-        }
-
-        // 002350
-        // 2350
-        // 23,50
-        // 23.50
-        // .
+        $value = parent::parse($value);
 
         if ($this->delimiters) {
             $delimiters = str_split($this->delimiters);
