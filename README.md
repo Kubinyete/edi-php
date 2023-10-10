@@ -9,23 +9,23 @@ Firstly, you should declare your own data structures using the attributes provid
 // Declaring a standard EDI header line (for line 1)
 class EDIHeader extends Registry
 {
-    #[TextField(2)]
+    #[Text(2)]
     public string $code;
-    #[TextField(6)]
+    #[Text(6)]
     public string $version;
-    #[DateField(14, format: 'YmdHis')]
+    #[Date(14, format: 'YmdHis')]
     public DateTimeInterface $dateTime;
-    #[TextField(6)]
+    #[Text(6)]
     public string $movementId;
-    #[TextField(30)]
+    #[Text(30)]
     public string $acquirerName;
-    #[TextField(4)]
+    #[Text(4)]
     public string $serviceProviderId;
-    #[TextField(9)]
+    #[Text(9)]
     public string $establishmentCode;
-    #[TextField(1)]
+    #[Text(1)]
     public string $processingType;
-    #[TextField(6)]
+    #[Text(6)]
     public string $nseq;
 }
 
