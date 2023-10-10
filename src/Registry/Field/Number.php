@@ -9,7 +9,7 @@ class Number extends Numeric
 {
     public function __construct(public int $size, ...$args)
     {
-        parent::__construct($size, ...$args, padDirection: STR_PAD_LEFT, padChar: '0');
+        parent::__construct($size, ...$args);
     }
 
     public function parse(string $value)
