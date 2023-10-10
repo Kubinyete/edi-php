@@ -9,14 +9,14 @@ use DateTimeImmutable;
 use Kubinyete\Edi\Registry\Exception\FieldException;
 
 #[Attribute]
-class DateField extends Field
+class Date extends Field
 {
-    public function __construct(int $size, public string $format = 'Y-m-d', public ?string $tz = null, ?int $index = null)
+    public function __construct(int $size, private string $format = 'Y-m-d', private ?string $tz = null, ...$args)
     {
-        parent::__construct($size, $index);
+        parent::__construct($size, ...$args);
     }
 
-    public function parse($value)
+    public function parse(string $value)
     {
         try {
             $tz = $this->tz ? new DateTimeZone($this->tz) : null;
@@ -31,5 +31,11 @@ class DateField extends Field
         }
 
         return $date;
+    }
+
+    public function serialize($value): string
+    {
+        $format = str_replace('!', '', $this->format);
+        return str_pad($value->format($format), $this->size);
     }
 }
