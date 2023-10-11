@@ -48,8 +48,8 @@ class Stream implements StreamInterface
 
     public function seek(int $offset, int $from = SEEK_SET): void
     {
-        $result = ftell($this->resource);
-        $this->assert($result !== false, "Seek operation on resource stream failed");
+        $result = fseek($this->resource, $offset, $from);
+        $this->assert($result === 0, "Seek operation on resource stream failed");
     }
 
     public function eof(): bool
