@@ -51,14 +51,10 @@ class LineReader implements IteratorAggregate
 
     public function goto(int $line): void
     {
+        $this->rollback();
         while (!$this->eof() && $this->getLineNumber() < $line) {
             $this->next();
         }
-    }
-
-    public function jump(int $offset): void
-    {
-        $this->stream->seek($offset);
     }
 
     public function eof(): bool
