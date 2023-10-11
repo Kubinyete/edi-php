@@ -52,11 +52,6 @@ abstract class LineParser implements IteratorAggregate
         $this->reader->goto($line);
     }
 
-    public function jump(int $offset): void
-    {
-        $this->reader->jump($offset);
-    }
-
     public function getIterator(): Traversable
     {
         while ($registry = $this->next()) {
